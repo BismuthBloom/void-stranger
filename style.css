@@ -1,0 +1,57 @@
+/*************************************
+ * Backgrounds
+ *************************************/
+body {
+    background-color: black;
+}
+
+body .white-void {
+   background-color: white;
+}
+
+
+/*************************************
+ * Interaction
+ *************************************/
+.interactable:hover {
+    opacity: 75;
+}
+
+.statue { /* For something that can be pushed */ }
+
+/*************************************
+ * Tilemap
+ *************************************/
+.tile {
+    width:  7.14vw;
+    height: 7.14vw;
+}
+
+
+/*************************************
+ * Tile types
+ *************************************/
+.floor { /* basic tile */ }
+
+.stairs { /* special click to get to next floor */ }
+
+.glass { /* special click to destroy */ }
+
+.switch { /* ??? might need rework for places without eggs */ }
+
+.locked { /* cant exit. */ }
+
+.bomb { /* special click to make explo */ }
+
+.explo { /* special click to destroy */ }
+
+.copy { /* summon a shade. as a treat. */ }
+
+.death { /* self explanatory */ }
+
+.ui { /* UI tiles with no effect */ }
+
+.number { /* EX: locust number, second half of brane number */ }
+
+.b { /* go to carcass if picked up */ }
+
