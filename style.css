@@ -24,9 +24,7 @@ body .white-void {
 /*************************************
  * Interaction
  *************************************/
-.interactable:hover {
-    opacity: 75;
-}
+.no-interact {}
 
 .statue { /* For something that can be pushed */ }
 
@@ -44,19 +42,13 @@ body .white-void {
 /*************************************
  * Tile types
  *************************************/
-.floor { /* basic tile */ 
-    background-image: url("sprites/tiles/spr_floor_0.png");
-}
+.floor { background-image: url("sprites/tiles/spr_floor_0.png"); }
 
 .empty {}
 
-.empty-edge {
-    background-image: url("sprites/tiles/spr_floor_1.png");
-}
+.empty-edge { background-image: url("sprites/tiles/spr_floor_1.png"); }
 
-.stairs { /* special click to get to next floor */ 
-    background-image: url("sprites/tiles/spr_stairs_0.png");
-}
+.stairs { background-image: url("sprites/tiles/spr_stairs_0.png"); }
 
 .glass { /* special click to destroy */ }
 
@@ -78,3 +70,53 @@ body .white-void {
 
 .b { /* go to carcass if picked up */ }
 
+/*************************************
+ * walls...
+ *************************************/
+.u-wall { background-image: url("sprites/tiles/walls/spr_up_wall_0.png"); }
+
+.u-edge { background-image: url("sprites/tiles/walls/spr_up_edge_0.png"); }
+
+.ul-corner { background-image: url("sprites/tiles/walls/spr_up_left_corner_0.png"); }
+
+.lu-corner { background-image: url("sprites/tiles/walls/spr_left_up_corner_0.png"); }
+
+.ul-in-edge { background-image: url("sprites/tiles/walls/spr_up_left_in_edge_0.png"); }
+
+.ul-out-edge { background-image: url("sprites/tiles/walls/spr_up_left_out_edge_0.png"); }
+
+.l-wall { background-image: url("sprites/tiles/walls/spr_left_wall_0.png"); }
+
+.l-edge { background-image: url("sprites/tiles/walls/spr_left_edge_0.png"); }
+
+.dl-corner { background-image: url("sprites/tiles/walls/spr_down_left_corner_0.png"); }
+
+.ld-corner { background-image: url("sprites/tiles/walls/spr_left_down_corner_0.png"); }
+
+.dl-in-edge { background-image: url("sprites/tiles/walls/spr_down_left_in_edge_0.png"); }
+
+.dl-out-edge { background-image: url("sprites/tiles/walls/spr_down_left_out_edge_0.png"); }
+
+.d-wall { background-image: url("sprites/tiles/walls/spr_down_wall_0.png"); }
+
+.d-edge { background-image: url("sprites/tiles/walls/spr_down_edge_0.png"); }
+
+.dr-corner { background-image: url("sprites/tiles/walls/spr_down_right_corner_0.png"); }
+
+.rd-corner { background-image: url("sprites/tiles/walls/spr_right_down_corner_0.png"); }
+
+.dr-in-edge { background-image: url("sprites/tiles/walls/spr_down_right_in_edge_0.png"); }
+
+.dr-out-edge { background-image: url("sprites/tiles/walls/spr_down_right_out_edge_0.png"); }
+
+.r-wall { background-image: url("sprites/tiles/walls/spr_right_wall_0.png"); }
+
+.r-edge { background-image: url("sprites/tiles/walls/spr_right_edge_0.png"); }
+
+.ur-corner { background-image: url("sprites/tiles/walls/spr_up_right_corner_0.png"); }
+
+.ru-corner { background-image: url("sprites/tiles/walls/spr_right_up_corner_0.png"); }
+
+.ur-in-edge { background-image: url("sprites/tiles/walls/spr_up_right_in_edge_0.png"); }
+
+.ur-out-edge { background-image: url("sprites/tiles/walls/spr_up_right_out_edge_0.png"); }

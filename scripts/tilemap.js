@@ -3,6 +3,9 @@
 // 14 w, 9 height
 // either do on click querying for tiles here or just something else idk. id can be used like int-int for the x-y coord
 
+let data;
+
+
 /**
  *
 export function editTile(int tile, int action) {
@@ -13,7 +16,7 @@ export function editTile(int tile, int action) {
 
 /**
  */
-function addTiles() {
+function addTiles(data) {
 	let map = document.getElementById("map");
 	for (let i = 0; i < 126; ++i) {
 		let id = i.toString();
@@ -22,21 +25,23 @@ function addTiles() {
 		newTile.setAttribute("id", id);
 		newTile.addEventListener("click", clickTile);
 		map.appendChild(newTile);
-		loadTile(id);
+		loadTile(id, data);
 	}
 }
 
 /**
  */
-function loadTile(tileid) {
+function loadTile(tileid, data) {
 	let tiledata = localStorage.getItem(tileid);
 	if (tiledata == null) {
 		// b001 + set localStorage
+		tiledata = data["B001"][tileid]
+		localStorage.setItem(tileid, tiledata);
 	}
 	let tile = document.getElementById(tileid);
-	tile.classList.add("interactable");
-	// big switch statement here for tile type
-	tile.classList.add("floor");
+	tiledata.toString().split(" ").forEach( function(class_name) {
+		tile.classList.add(class_name);
+	});
 }
 
 
@@ -81,35 +86,58 @@ function clickTile(evnt) {
 	let aboveTile = getAboveTile(id);
 	let belowTile = getBelowTile(id);
 	
-	tile.classList.forEach(function (class_name, _key, _listObj) {
+	tile.classList.forEach(function (class_name) {
+		//let kill = false;
 		switch (class_name) {
+			case "no-interact":
+				kill = true;
+				break;
 			case "floor":
 				if (belowTile && isEmptyEdge(belowTile)) {
 					belowTile.classList.replace("empty-edge", "empty");
+					localStorage.setItem(belowTile.id, "empty");
 				}
 				else {}
 
 				if (aboveTile && !(isEmptyTile(aboveTile) || isEmptyEdge(aboveTile))) {
 					tile.classList.replace(class_name, "empty-edge");
+					localStorage.setItem(tile.id, "empty-edge");
 				}
 				else {
 					tile.classList.replace(class_name, "empty");
+					localStorage.setItem(tile.id, "empty");
 				}
 				break;
 			case "empty-edge":
 			case "empty":
 				if (belowTile && isEmptyTile(belowTile)) {
 					belowTile.classList.replace("empty", "empty-edge");
+					localStorage.setItem(belowTile.id, "empty-edge");
 				}
 
 				tile.classList.replace(class_name, "floor");
+				localStorage.setItem(tile.id, "floor");
 				break;
 		}
+		//if (kill) { return; }
 	});
 }
 
 
-$(document).ready( function() {
+async function gatherJSON() {
 	// make the tiles, then call rendertiles
-	addTiles();
+	try {
+		const response = await fetch("data/b001.json");
+		if (!response.ok) { throw new Error("can't find the json"); }
+
+		data = await response.json();
+		addTiles(data);
+	}
+	catch (error) {
+		console.error("failed to fetch:", error);
+	}
+}
+
+$(document).ready( function() {
+	gatherJSON();
 });
