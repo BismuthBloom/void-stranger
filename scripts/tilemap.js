@@ -20,11 +20,11 @@ function addTiles() {
 		let newTile = document.createElement("div");
 		newTile.classList.add("tile");
 		newTile.setAttribute("id", id);
+		newTile.addEventListener("click", clickTile);
 		map.appendChild(newTile);
 		loadTile(id);
 	}
 }
-
 
 /**
  */
@@ -36,6 +36,14 @@ function loadTile(tileid) {
 	let tile = document.getElementById(tileid);
 	// set the image here .style.backgroundImage="url(images/img.jpg)";
 	tile.style.backgroundImage="url(sprites/tiles/spr_floor_0.png)";
+	tile.classList.add("interactable");
+}
+
+
+/**
+ */
+function clickTile(evnt) {
+	console.log(evnt.currentTarget.id);
 }
 
 
