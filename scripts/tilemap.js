@@ -34,16 +34,78 @@ function loadTile(tileid) {
 		// b001 + set localStorage
 	}
 	let tile = document.getElementById(tileid);
-	// set the image here .style.backgroundImage="url(images/img.jpg)";
-	tile.style.backgroundImage="url(sprites/tiles/spr_floor_0.png)";
 	tile.classList.add("interactable");
+	// big switch statement here for tile type
+	tile.classList.add("floor");
+}
+
+
+/**
+ */
+function getAboveTile(id) {
+	if (id < 14) {
+		return null;
+	}
+	return document.getElementById((id-14).toString());
+}
+
+
+/**
+ */
+function getBelowTile(id) {
+	if (id > 111) {
+		return null;
+	}
+	return document.getElementById((id+14).toString());
+}
+
+/**
+ */
+function isEmptyTile(tile) {
+	return tile.classList.contains("empty");
+}
+
+
+/**
+ */
+function isEmptyEdge(tile) {
+	return tile.classList.contains("empty-edge");
 }
 
 
 /**
  */
 function clickTile(evnt) {
-	console.log(evnt.currentTarget.id);
+	let tile = evnt.currentTarget;
+	let id = parseInt(tile.id);
+	let aboveTile = getAboveTile(id);
+	let belowTile = getBelowTile(id);
+	
+	tile.classList.forEach(function (class_name, _key, _listObj) {
+		switch (class_name) {
+			case "floor":
+				if (belowTile && isEmptyEdge(belowTile)) {
+					belowTile.classList.replace("empty-edge", "empty");
+				}
+				else {}
+
+				if (aboveTile && !(isEmptyTile(aboveTile) || isEmptyEdge(aboveTile))) {
+					tile.classList.replace(class_name, "empty-edge");
+				}
+				else {
+					tile.classList.replace(class_name, "empty");
+				}
+				break;
+			case "empty-edge":
+			case "empty":
+				if (belowTile && isEmptyTile(belowTile)) {
+					belowTile.classList.replace("empty", "empty-edge");
+				}
+
+				tile.classList.replace(class_name, "floor");
+				break;
+		}
+	});
 }
 
 

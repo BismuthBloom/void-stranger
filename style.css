@@ -44,9 +44,19 @@ body .white-void {
 /*************************************
  * Tile types
  *************************************/
-.floor { /* basic tile */ }
+.floor { /* basic tile */ 
+    background-image: url("sprites/tiles/spr_floor_0.png");
+}
 
-.stairs { /* special click to get to next floor */ }
+.empty {}
+
+.empty-edge {
+    background-image: url("sprites/tiles/spr_floor_1.png");
+}
+
+.stairs { /* special click to get to next floor */ 
+    background-image: url("sprites/tiles/spr_stairs_0.png");
+}
 
 .glass { /* special click to destroy */ }
 
