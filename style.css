@@ -1,14 +1,23 @@
 /*************************************
  * Backgrounds
  *************************************/
+
+html {
+    image-rendering: pixelated;
+}
+
 body {
     background-color: black;
 }
 
 body .white-void {
-   background-color: white;
+    background-color: white;
 }
 
+#map {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
 
 /*************************************
  * Interaction
@@ -23,8 +32,10 @@ body .white-void {
  * Tilemap
  *************************************/
 .tile {
-    width:  7.14vw;
-    height: 7.14vw;
+    width:  7.1vw;
+    height: 7.1vw;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
