@@ -7,14 +7,6 @@ let data;
 
 
 /**
- *
-export function editTile(int tile, int action) {
-	let tile = document.getElementById(tile.toString());
-	// TODO: implement this
-}*/
-
-
-/**
  */
 function addTiles(data) {
 	let map = document.getElementById("map");
@@ -85,14 +77,20 @@ function clickTile(evnt) {
 	let id = parseInt(tile.id);
 	let aboveTile = getAboveTile(id);
 	let belowTile = getBelowTile(id);
+
+	let heldTile = localStorage.getItem("heldTile");
+	if (!heldTile) { heldTile = "empty"; }
 	
 	tile.classList.forEach(function (class_name) {
-		//let kill = false;
+		let kill = false;
 		switch (class_name) {
 			case "no-interact":
 				kill = true;
 				break;
+			case "stairs":
 			case "floor":
+				if (heldTile !== "empty") { break; }
+
 				if (belowTile && isEmptyEdge(belowTile)) {
 					belowTile.classList.replace("empty-edge", "empty");
 					localStorage.setItem(belowTile.id, "empty");
@@ -107,19 +105,24 @@ function clickTile(evnt) {
 					tile.classList.replace(class_name, "empty");
 					localStorage.setItem(tile.id, "empty");
 				}
+
+				localStorage.setItem("heldTile", class_name);
 				break;
 			case "empty-edge":
 			case "empty":
+				if (heldTile == "empty") { break; }
+
 				if (belowTile && isEmptyTile(belowTile)) {
 					belowTile.classList.replace("empty", "empty-edge");
 					localStorage.setItem(belowTile.id, "empty-edge");
 				}
 
-				tile.classList.replace(class_name, "floor");
-				localStorage.setItem(tile.id, "floor");
+				tile.classList.replace(class_name, heldTile);
+				localStorage.setItem(tile.id, heldTile);
+				localStorage.setItem("heldTile", "empty");
 				break;
 		}
-		//if (kill) { return; }
+		if (kill) { return; }
 	});
 }
 
