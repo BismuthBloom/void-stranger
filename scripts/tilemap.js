@@ -10,24 +10,45 @@ let data;
  */
 function addTiles(data) {
 	let map = document.getElementById("map");
+
+	let room = localStorage.getItem("room");
+	if (!room) {
+		localStorage.setItem("room", "B001");
+		room = "B001";
+	}
+
 	for (let i = 0; i < 126; ++i) {
 		let id = i.toString();
 		let newTile = document.createElement("div");
 		newTile.classList.add("tile");
 		newTile.setAttribute("id", id);
 		newTile.addEventListener("click", clickTile);
+		newTile.addEventListener("contextmenu", rightClickTile);
 		map.appendChild(newTile);
-		loadTile(id, data);
+		loadTile(id, room, data);
 	}
 }
 
+
 /**
  */
-function loadTile(tileid, data) {
+function loadRoom(roomname, data) {
+	localStorage.setItem("room", roomname);
+	localStorage.setItem("heldTile", "empty");
+	
+	for (let i = 0; i < 126; ++i) {
+		loadTile(i.toString(), roomname, data);
+	}
+}
+
+
+/**
+ */
+function loadTile(tileid, roomname, data) {
 	let tiledata = localStorage.getItem(tileid);
-	if (tiledata == null) {
+	if (!tiledata) {
 		// b001 + set localStorage
-		tiledata = data["B001"][tileid]
+		tiledata = data[roomname][tileid];
 		localStorage.setItem(tileid, tiledata);
 	}
 	let tile = document.getElementById(tileid);
@@ -87,6 +108,9 @@ function clickTile(evnt) {
 			case "no-interact":
 				kill = true;
 				break;
+			case "ui":
+			case "void-1":
+			case "void-2":
 			case "stairs":
 			case "floor":
 				if (heldTile !== "empty") { break; }
@@ -127,10 +151,32 @@ function clickTile(evnt) {
 }
 
 
+/**
+ */
+function rightClickTile(evnt) {
+	evnt.preventDefault();
+	let tile = evnt.currentTarget;
+	let id = parseInt(tile.id);
+	
+	tile.classList.forEach(function (class_name) {
+		switch (class_name) {
+			case "stairs":
+				// go to the next room!!
+				console.log("figure out how to traverse here");
+				break;
+			case "closed-chest":
+				break;
+			case "unused-tree":
+				break;
+		}
+	});
+}
+
+
 async function gatherJSON() {
 	// make the tiles, then call rendertiles
 	try {
-		const response = await fetch("data/b001.json");
+		const response = await fetch("data/rooms.json");
 		if (!response.ok) { throw new Error("can't find the json"); }
 
 		data = await response.json();

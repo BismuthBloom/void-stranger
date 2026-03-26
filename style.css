@@ -120,3 +120,16 @@ body .white-void {
 .ur-in-edge { background-image: url("sprites/tiles/walls/spr_up_right_in_edge_0.png"); }
 
 .ur-out-edge { background-image: url("sprites/tiles/walls/spr_up_right_out_edge_0.png"); }
+
+/*************************************
+ * UI tiles
+ *************************************/
+
+.ui { background-color: white; }
+
+.void-1 { background-image: url("sprites/ui/spr_vo_0.png"); }
+
+.void-2 { background-image: url("sprites/ui/spr_id_0.png"); }
+
+.b0 { background-image: url("sprites/ui/spr_b0_0.png"); }
+
