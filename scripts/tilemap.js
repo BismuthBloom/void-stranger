@@ -108,17 +108,25 @@ function isEmptyEdge(tile) {
 
 /**
  */
+function isNoninteractable(tile) {
+	return tile.classList.contains("no-interact");
+}
+
+
+/**
+ */
 function clickTile(evnt) {
 	let tile = evnt.currentTarget;
 	let id = parseInt(tile.id);
 	let aboveTile = getAboveTile(id);
 	let belowTile = getBelowTile(id);
 
+	if (isNoninteractable(tile)) { return; }
+
 	let heldTile = localStorage.getItem("heldTile");
 	if (!heldTile) { heldTile = "empty"; }
 	
 	tile.classList.forEach(function (class_name) {
-		let kill = false;
 		switch (class_name) {
 			case "no-interact":
 				kill = true;
@@ -163,7 +171,6 @@ function clickTile(evnt) {
 				changeRodIcon(heldTile, "empty");
 				break;
 		}
-		if (kill) { return; }
 	});
 }
 
