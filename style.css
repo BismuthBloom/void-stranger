@@ -21,6 +21,14 @@ body .white-void {
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
 }
 
+.header {
+    height: 5vh;
+}
+
+.footer {
+    height: 5vh;
+}
+
 /*************************************
  * Interaction
  *************************************/
@@ -64,11 +72,6 @@ body .white-void {
 
 .death { /* self explanatory */ }
 
-.ui { /* UI tiles with no effect */ }
-
-.number { /* EX: locust number, second half of brane number */ }
-
-.b { /* go to carcass if picked up */ }
 
 /*************************************
  * walls...
@@ -133,3 +136,56 @@ body .white-void {
 
 .b0 { background-image: url("sprites/ui/spr_b0_0.png"); }
 
+.b1 { background-color: white; }
+
+.b2 { background-color: white; }
+
+.void-rod-empty { 
+    background-image: url(sprites/ui/spr_voidrod_icon_1.png); 
+    background-color: white;
+}
+
+.void-rod-floor { 
+    background-image: url("sprites/ui/spr_voidrod_icon_2.png"); 
+    background-color: white;
+}
+
+.void-rod-glass { 
+    background-image: url("sprites/ui/spr_voidrod_icon_3.png"); 
+    background-color: white;
+}
+
+.void-rod-switch { 
+    background-image: url("sprites/ui/spr_voidrod_icon_4.png"); 
+    background-color: white;
+}
+
+.void-rod-stairs { 
+    background-image: url("sprites/ui/spr_voidrod_icon_5.png"); 
+    background-color: white;
+}
+
+.void-rod-copy { 
+    background-image: url("sprites/ui/spr_voidrod_icon_6.png"); 
+    background-color: white;
+}
+
+.void-rod-bomb { 
+    background-image: url("sprites/ui/spr_voidrod_icon_7.png"); 
+    background-color: white;
+}
+
+.void-rod-explo { 
+    background-image: url("sprites/ui/spr_voidrod_icon_8.png"); 
+    background-color: white;
+}
+
+.void-rod-ui { 
+    background-image: url("sprites/ui/spr_voidrod_icon_9.png"); 
+    background-color: white;
+}
+
+.void-rod-death { 
+    background-image: url("sprites/ui/spr_voidrod_icon_10.png"); 
+    background-color: white;
+}

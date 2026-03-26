@@ -4,6 +4,7 @@
 // either do on click querying for tiles here or just something else idk. id can be used like int-int for the x-y coord
 
 let data;
+let voidrod;
 
 
 /**
@@ -55,6 +56,20 @@ function loadTile(tileid, roomname, data) {
 	tiledata.toString().split(" ").forEach( function(class_name) {
 		tile.classList.add(class_name);
 	});
+
+	if (tileid == "118") {
+		voidrod = tile;
+	}
+}
+
+
+/**
+ */
+function changeRodIcon(prevTile, heldTile) {
+	let prefix = "void-rod-";
+	if (prevTile == "void-1" || prevTile == "void-2") { prevTile = "ui"; }
+	if (heldTile == "void-1" || heldTile == "void-2") { heldTile = "ui"; }
+	voidrod.classList.replace(prefix.concat(prevTile), prefix.concat(heldTile));
 }
 
 
@@ -131,6 +146,7 @@ function clickTile(evnt) {
 				}
 
 				localStorage.setItem("heldTile", class_name);
+				changeRodIcon("empty", class_name);
 				break;
 			case "empty-edge":
 			case "empty":
@@ -144,6 +160,7 @@ function clickTile(evnt) {
 				tile.classList.replace(class_name, heldTile);
 				localStorage.setItem(tile.id, heldTile);
 				localStorage.setItem("heldTile", "empty");
+				changeRodIcon(heldTile, "empty");
 				break;
 		}
 		if (kill) { return; }
