@@ -36,6 +36,8 @@ body .white-void {
 
 .statue { /* For something that can be pushed */ }
 
+.atoner { background-image: url("sprites/tiles/spr_atoner_floor.png"); }
+
 /*************************************
  * Tilemap
  *************************************/
@@ -68,9 +70,107 @@ body .white-void {
 
 .explo { /* special click to destroy */ }
 
-.copy { /* summon a shade. as a treat. */ }
+.copy { background-image: url("sprites/tiles/spr_copy.png"); }
+
+.shade { background-image: url("sprites/entities/enemies/spr_copy_shade.gif"); }
 
 .death { /* self explanatory */ }
+
+
+/*************************************
+ * Tree
+ *************************************/
+.tree-1 { background-image: url("sprites/tiles/tree/spr_tree_0.png"); }
+
+.tree-2 { background-image: url("sprites/tiles/tree/spr_tree_1.png"); }
+
+.tree-3 { background-image: url("sprites/tiles/tree/spr_tree_2.png"); }
+
+.tree-4 { background-image: url("sprites/tiles/tree/spr_tree_3.png"); }
+
+.tree-5 { background-image: url("sprites/tiles/tree/spr_tree_4.png"); }
+
+.tree-6 { background-image: url("sprites/tiles/tree/spr_tree_5.png"); }
+
+.tree-7 { background-image: url("sprites/tiles/tree/spr_tree_6.png"); }
+
+.tree-8 { background-image: url("sprites/tiles/tree/spr_tree_7.png"); }
+
+.tree-9 { background-image: url("sprites/tiles/tree/spr_tree_8.png"); }
+
+.tree-10 { background-image: url("sprites/tiles/tree/spr_tree_9.png"); }
+
+.tree-11 { background-image: url("sprites/tiles/tree/spr_tree_10.png"); }
+
+.tree-12 { background-image: url("sprites/tiles/tree/spr_tree_11.png"); }
+
+.used-tree-1 { background-image: url("sprites/tiles/tree/spr_tree_used_0.png"); }
+
+.used-tree-2 { background-image: url("sprites/tiles/tree/spr_tree_used_1.png"); }
+
+.used-tree-3 { background-image: url("sprites/tiles/tree/spr_tree_used_2.png"); }
+
+.used-tree-4 { background-image: url("sprites/tiles/tree/spr_tree_used_3.png"); }
+
+.used-tree-5 { background-image: url("sprites/tiles/tree/spr_tree_used_4.png"); }
+
+.used-tree-6 { background-image: url("sprites/tiles/tree/spr_tree_used_5.png"); }
+
+.used-tree-7 { background-image: url("sprites/tiles/tree/spr_tree_used_6.png"); }
+
+.used-tree-8 { background-image: url("sprites/tiles/tree/spr_tree_used_7.png"); }
+
+.used-tree-9 { background-image: url("sprites/tiles/tree/spr_tree_used_8.png"); }
+
+.used-tree-10 { background-image: url("sprites/tiles/tree/spr_tree_used_9.png"); }
+
+.used-tree-11 { background-image: url("sprites/tiles/tree/spr_tree_used_10.png"); }
+
+.used-tree-12 { background-image: url("sprites/tiles/tree/spr_tree_used_11.png"); }
+
+
+/*************************************
+ * Earth
+ *************************************/
+.earth-1 { background-image: url("sprites/tiles/earth/spr_earth_0.png"); }
+
+.earth-2 { background-image: url("sprites/tiles/earth/spr_earth_1.png"); }
+
+.earth-3 { background-image: url("sprites/tiles/earth/spr_earth_2.png"); }
+
+.earth-4 { background-image: url("sprites/tiles/earth/spr_earth_3.png"); }
+
+.earth-5 { background-image: url("sprites/tiles/earth/spr_earth_4.png"); }
+
+.earth-6 { background-image: url("sprites/tiles/earth/spr_earth_5.png"); }
+
+.earth-7 { background-image: url("sprites/tiles/earth/spr_earth_6.png"); }
+
+.earth-8 { background-image: url("sprites/tiles/earth/spr_earth_7.png"); }
+
+.earth-9 { background-image: url("sprites/tiles/earth/spr_earth_8.png"); }
+
+.earth-10 { background-image: url("sprites/tiles/earth/spr_earth_9.png"); }
+
+.earth-11 { background-image: url("sprites/tiles/earth/spr_earth_10.png"); }
+
+.earth-12 { background-image: url("sprites/tiles/earth/spr_earth_11.png"); }
+
+.earth-13 { background-image: url("sprites/tiles/earth/spr_earth_12.png"); }
+
+.earth-14 { background-image: url("sprites/tiles/earth/spr_earth_13.png"); }
+
+.earth-15 { background-image: url("sprites/tiles/earth/spr_earth_14.png"); }
+
+.earth-16 { background-image: url("sprites/tiles/earth/spr_earth_15.png"); }
+
+.earth-17 { background-image: url("sprites/tiles/earth/spr_earth_16.png"); }
+
+.earth-18 { background-image: url("sprites/tiles/earth/spr_earth_17.png"); }
+
+.earth-19 { background-image: url("sprites/tiles/earth/spr_earth_18.png"); }
+
+.earth-20 { background-image: url("sprites/tiles/earth/spr_earth_19.png"); }
 
 
 /*************************************
@@ -136,9 +236,31 @@ body .white-void {
 
 .b0 { background-image: url("sprites/ui/spr_b0_0.png"); }
 
-.b1 { background-color: white; }
+.b1 { background-image: url("sprites/ui/spr_b1.png"); }
 
-.b2 { background-color: white; }
+.b2 { background-image: url("sprites/ui/spr_b2.png"); }
+
+.bhuh { background-image: url("sprites/ui/spr_bhuh.png"); }
+
+.n28 { background-image: url("sprites/ui/spr_28.png"); }
+
+.n56 { background-image: url("sprites/ui/spr_56.png"); }
+
+.n84 { background-image: url("sprites/ui/spr_84.png"); }
+
+.n12 { background-image: url("sprites/ui/spr_12.png"); }
+
+.n40 { background-image: url("sprites/ui/spr_40.png"); }
+
+.n68 { background-image: url("sprites/ui/spr_68.png"); }
+
+.n96 { background-image: url("sprites/ui/spr_96.png"); }
+
+.n24 { background-image: url("sprites/ui/spr_24.png"); }
+
+.n54 { background-image: url("sprites/ui/spr_54.png"); }
+
+.huh { background-image: url("sprites/ui/spr_huuh.png"); }
 
 .void-rod-empty { 
     background-image: url(sprites/ui/spr_voidrod_icon_1.png); 
