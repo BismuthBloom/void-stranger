@@ -42,8 +42,6 @@ body .white-void {
  * Tilemap
  *************************************/
 .tile {
-    width:  7.1vw;
-    height: 7.1vw;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -310,4 +308,25 @@ body .white-void {
 .void-rod-death { 
     background-image: url("sprites/ui/spr_voidrod_icon_10.png"); 
     background-color: white;
+}
+
+/*
+ *
+ */
+.block {
+    display: flex; /* required */
+    flex-flow: row nowrap; /* required */
+}
+.block .background,
+.block .foreground {
+    box-sizing: border-box; /* required */
+    width: 100%; /* required */
+    flex: none; /* required */
+}
+.block .background {
+    background-image: url("sprites/fnt_text_12.png");
+    background-color: white;
+}
+.block .foreground {
+    margin-left: -100%; /* required */
 }

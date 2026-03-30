@@ -27,6 +27,8 @@ function addTiles(data) {
 		map.appendChild(newTile);
 		loadTile(id, room, data);
 	}
+
+	tileSize();
 }
 
 
@@ -234,6 +236,39 @@ function rightClickTile(evnt) {
 }
 
 
+/**
+ */
+function tileSize() {
+	// resize the tiles to fit perfectly in place
+	let currw = window.innerWidth-16;
+	let currh = window.innerHeight-16; 
+	let propw = currh*(14.0/9.0);
+	let proph = currw*(9.0/14.0);
+	// console.log(currw, currh, propw, proph);
+
+	let tiles = document.querySelectorAll("div.tile");
+	let size = 0.0;
+	let scale = "px";
+
+	if (propw > currw) {
+		size = (currw/14.0);
+	}
+	else {
+		size = (currh/9.0);
+		let map = document.querySelector("#map");
+		let margin = (currw-(size*14))/2.0;
+		map.style.margin = "8px " + margin.toString() + scale;
+	}
+
+	size = size.toString() + scale;
+
+	tiles.forEach(tile => {
+		tile.style.height = size;
+		tile.style.width = size;
+	});
+}
+
+
 async function gatherJSON() {
 	// make the tiles, then call rendertiles
 	try {
@@ -251,3 +286,5 @@ async function gatherJSON() {
 $(document).ready( function() {
 	gatherJSON();
 });
+
+window.onresize = tileSize;
