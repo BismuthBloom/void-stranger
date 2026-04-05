@@ -242,19 +242,20 @@ function tileSize() {
 	// resize the tiles to fit perfectly in place
 	let currw = window.innerWidth-16;
 	let currh = window.innerHeight-16; 
-	let propw = currh*(14.0/9.0);
-	let proph = currw*(9.0/14.0);
-	// console.log(currw, currh, propw, proph);
+	let propw = currh*(14.0/10.0);
 
 	let tiles = document.querySelectorAll("div.tile");
 	let size = 0.0;
+	let tbmargin = 0.0;
 	let scale = "px";
 
 	if (propw > currw) {
 		size = (currw/14.0);
+		tbmargin = (currh-(size*10))/2.0;
 	}
 	else {
-		size = (currh/9.0);
+		size = (currh/10.0);
+		tbmargin = size/2.0;
 		let map = document.querySelector("#map");
 		let margin = (currw-(size*14))/2.0;
 		map.style.margin = "8px " + margin.toString() + scale;
@@ -265,6 +266,11 @@ function tileSize() {
 	tiles.forEach(tile => {
 		tile.style.height = size;
 		tile.style.width = size;
+	});
+
+	let topbot = document.querySelectorAll("div.topbot");
+	topbot.forEach(hf => {
+		hf.style.height = tbmargin.toString() + scale;
 	});
 }
 
