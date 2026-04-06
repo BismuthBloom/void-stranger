@@ -119,6 +119,15 @@ function isNoninteractable(tile) {
 /**
  */
 function isTreeTile(tile) {
+	const regex = /^.*tree.*/;
+	return Array.from(tile.classList).some(cn => 
+		regex.test(cn)
+	);
+}
+
+/**
+ */
+function isUsableTreeTile(tile) {
 	const regex = /^tree-/;
 	return Array.from(tile.classList).some(cn => 
 		regex.test(cn)
@@ -210,7 +219,7 @@ function rightClickTile(evnt) {
 	let tile = evnt.currentTarget;
 	let id = parseInt(tile.id);
 
-	if (isTreeTile(tile)) {
+	if (isUsableTreeTile(tile)) {
 		loadRoom(localStorage.getItem("room") + "-used", data);
 		return;
 	}
