@@ -283,6 +283,15 @@ function tileSize() {
 	});
 }
 
+/**
+ */
+function clearBoard() {
+	localStorage.setItem("heldTile", "empty");
+	for (let i = 0; i < 126; ++i) {
+		loadTile(i.toString(), "empty", data, true);
+	}
+}
+
 
 async function gatherJSON() {
 	// make the tiles, then call rendertiles
