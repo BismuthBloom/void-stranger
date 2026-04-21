@@ -13,30 +13,30 @@
   },
   "B112": {
     "Background": "V234.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["temp1", "temp2"]
   },
   "B140": {
     "Background": "V240.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["I can write anything here", "and as much as i want", "temp"]
   },
   "B168": {
     "Background": "V246.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["i hope you liked the temp from the previous text.", "please try reloading! it should still work out just fine!"]
   },
   "B196": {
     "Background": "V250.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["achoo"]
   },
   "B224": {
     "Background": "V251.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["sorry i sneeze"]
   },
   "B254": {
     "Background": "V254.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["anyways"]
   },
   "B255": {
     "Background": "V254.gif",
-    "Scene": ["temp", "temp"]
+    "Scene": ["i promise to finish the script", "so please be kind to me!", "this is a website for an assignment, after all", "but also a personal project"]
   }
 }
