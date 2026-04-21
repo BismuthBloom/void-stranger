@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-div .textbox {
+div #textbox {
     /* size shall be handled by tilemap */
     background-image: url("sprites/vs_textbox.png");
     background-repeat: no-repeat;

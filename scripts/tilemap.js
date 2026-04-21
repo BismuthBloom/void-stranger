@@ -28,7 +28,7 @@ function addTiles(data) {
 		loadTile(id, room, data);
 	}
 
-	tileSize();
+	window.customResize();
 }
 
 
@@ -247,47 +247,6 @@ function rightClickTile(evnt) {
 
 /**
  */
-function tileSize() {
-	// resize the tiles to fit perfectly in place
-	let currw = window.innerWidth-16;
-	let currh = window.innerHeight-16; 
-	let propw = currh*(14.0/10.0);
-
-	let tiles = document.querySelectorAll("div.tile");
-	let size = 0.0;
-	let tbmargin = 0.0;
-	let sidemargin = 0.0;
-	let scale = "px";
-
-	if (propw > currw) {
-		size = (currw/14.0);
-		tbmargin = (currh-(size*10))/2.0;
-	}
-	else {
-		size = (currh/10.0);
-		tbmargin = size/2.0;
-		let map = document.querySelector("#map");
-		sidemargin = (currw-(size*14))/2.0;
-		map.style.margin = "8px " + sidemargin.toString() + scale;
-	}
-
-	tiles.forEach(tile => {
-		tile.style.height = size.toString() + scale;
-		tile.style.width = size.toString() + scale;
-	});
-
-	let topbot = document.querySelectorAll("div.topbot");
-	topbot.forEach(hf => {
-		hf.style.height = tbmargin.toString() + scale;
-		hf.style.margin = "8px " + sidemargin.toString() + scale;
-	});
-
-	let instruction = document.querySelector(".instruction");
-	instruction.style.fontSize = Math.floor(size) + "px";
-}
-
-/**
- */
 function clearBoard() {
 	localStorage.setItem("heldTile", "empty");
 	for (let i = 0; i < 126; ++i) {
@@ -313,5 +272,3 @@ async function gatherJSON() {
 $(document).ready( function() {
 	gatherJSON();
 });
-
-window.onresize = tileSize;
