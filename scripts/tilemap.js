@@ -233,7 +233,7 @@ function rightClickTile(evnt) {
 				let nextRoom = data[currRoom]["Stairs Exit"];
 				
 				if (nextRoom == "") { return; }
-				if (nextRoom == "B028") { window.resetGame(); return; }
+				if (nextRoom == "B028") { window.resetGame(); }
 				loadRoom(nextRoom, data);
 				break;
 			case "copy":

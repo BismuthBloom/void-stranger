@@ -18,6 +18,7 @@ window.resetGame = function resetGame() {
 		hf.style.display = "none";
 	});
 	localStorage.setItem("gamestate", "false");
+	intro.addEventListener("contextmenu", rightClickIntro);
 }
 
 /**
@@ -31,8 +32,6 @@ window.mapGameState = function mapGameState() {
 		hf.style.display = "block";
 	});
 	localStorage.setItem("gamestate", "map");
-
-	// instruction.innerHtml = "Left click to pick up tiles. Right click to \"use\" things like the tree or stairs.";
 }
 
 
@@ -48,8 +47,6 @@ window.dreamGameState = function dreamGameState() {
 	});
 	localStorage.setItem("gamestate", "dream");
 	window.loadRoomText();
-
-	// instruction.innerHtml = "Click on the text box to progress the dialogue.";
 }
 
 
