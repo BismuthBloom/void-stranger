@@ -256,6 +256,7 @@ function tileSize() {
 	let tiles = document.querySelectorAll("div.tile");
 	let size = 0.0;
 	let tbmargin = 0.0;
+	let sidemargin = 0.0;
 	let scale = "px";
 
 	if (propw > currw) {
@@ -266,21 +267,23 @@ function tileSize() {
 		size = (currh/10.0);
 		tbmargin = size/2.0;
 		let map = document.querySelector("#map");
-		let margin = (currw-(size*14))/2.0;
-		map.style.margin = "8px " + margin.toString() + scale;
+		sidemargin = (currw-(size*14))/2.0;
+		map.style.margin = "8px " + sidemargin.toString() + scale;
 	}
 
-	size = size.toString() + scale;
-
 	tiles.forEach(tile => {
-		tile.style.height = size;
-		tile.style.width = size;
+		tile.style.height = size.toString() + scale;
+		tile.style.width = size.toString() + scale;
 	});
 
 	let topbot = document.querySelectorAll("div.topbot");
 	topbot.forEach(hf => {
 		hf.style.height = tbmargin.toString() + scale;
+		hf.style.margin = "8px " + sidemargin.toString() + scale;
 	});
+
+	let instruction = document.querySelector(".instruction");
+	instruction.style.fontSize = Math.floor(size) + "px";
 }
 
 /**

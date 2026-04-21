@@ -1,9 +1,36 @@
 /*************************************
+ * Text
+ *************************************/
+@font-face {
+    font-family: "alkhemikalmedium";
+    src: url("fonts/alkhemikal-webfont.woff2") format("woff2"),
+         url("fonts/alkhemikal-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+div .textbox {
+    /* size shall be handled by tilemap */
+    background-image: url("sprites/vs_textbox.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div .instruction {
+    color: white;
+    margin: 0px;
+}
+
+
+/*************************************
  * Backgrounds
  *************************************/
 
 html {
     image-rendering: pixelated;
+    font-family: "alkhemikalmedium";
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }
 
 body {
@@ -29,14 +56,14 @@ body .white-void {
     height: 5vh;
 }
 
+
 /*************************************
  * Interaction
  *************************************/
 .no-interact {}
 
-.statue { /* For something that can be pushed */ }
-
 .atoner { background-image: url("sprites/tiles/spr_atoner_floor.png"); }
+
 
 /*************************************
  * Tilemap
@@ -324,8 +351,8 @@ body .white-void {
     flex: none; /* required */
 }
 .block .background {
-    background-image: url("sprites/fnt_text_12.png");
-    background-color: white;
+    background-image: url("");
+    background-color: black;
 }
 .block .foreground {
     margin-left: -100%; /* required */
