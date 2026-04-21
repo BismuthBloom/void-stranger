@@ -9,6 +9,19 @@ let fontSize;
 
 /**
  */
+window.resetGame = function resetGame() {
+	intro.style.display = "block";
+	map.style.display = "none";
+	textbox.style.display = "none";
+	textframe.style.display = "none";
+	topbot.forEach(hf => {
+		hf.style.display = "none";
+	});
+	localStorage.setItem("gamestate", "false");
+}
+
+/**
+ */
 window.mapGameState = function mapGameState() {
 	intro.style.display = "none";
 	map.style.display = "grid";
