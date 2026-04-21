@@ -102,9 +102,11 @@ $(document).ready( function() {
 
 	// set up listener for clicking on the displayed intro
 	if (localStorage.getItem("gamestate") == "map") { mapGameState(); }
+	else if (localStorage.getItem("gamestate") == "dream") {  }
 	else { 
-		localStorage.getItem("gamestate", "false");
+		localStorage.setItem("gamestate", "false");
 		intro.addEventListener("contextmenu", rightClickIntro); 
+		intro.style.display = "block";
 	}
 });
 

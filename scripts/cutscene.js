@@ -14,10 +14,10 @@ window.loadRoomText = function loadRoomText() {
 	catch {
 		currtext = [""];
 	}
+	console.log(currText.length);
 	textbox.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
 
 	console.log(parseInt(localStorage.getItem("textIndex")));
-	console.log(currText[parseInt(localStorage.getItem("textIndex"))]);
 }
 
 
@@ -28,13 +28,14 @@ function rightClickTextbox(evnt) {
 	evnt.preventDefault();
 	
 	let index = parseInt(localStorage.getItem("textIndex")) + 1;
+	console.log(index, " ", currText.length);
 	if (index == currText.length) {
 		localStorage.setItem("textIndex", "0");
 		window.mapGameState();
 		return;
 	}
 	textbox.innerHTML = currText[index];
-	localStorage.setItem("textIndex", (index + 1).toString());
+	localStorage.setItem("textIndex", index.toString());
 }
 
 //*
@@ -45,7 +46,9 @@ async function gatherJSON() {
 		if (!response.ok) { throw new Error("can't find the dream sequence json"); }
 
 		data = await response.json();
-		window.dreamGameState();
+		if (localStorage.getItem("gamestate") == "dream") {
+			window.dreamGameState();
+		}
 	}
 	catch (error) {
 		console.error("failed to fetch:", error);
