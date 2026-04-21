@@ -39,9 +39,9 @@ window.dreamGameState = function dreamGameState() {
 
 /**
  */
-function clickIntro(evnt) {
+function rightClickIntro(evnt) {
 	mapGameState();
-	intro.removeEventListener("click", clickIntro);
+	intro.removeEventListener("contextmenu", rightClickIntro);
 }
 
 
@@ -83,11 +83,14 @@ window.customResize = function resize() {
 	fontSize = Math.floor(size) + "px";
 	instruction.style.fontSize = fontSize;
 	intro.style.fontSize = fontSize;
+	textbox.style.fontSize = fontSize;
 
 	textbox.style.height = (size*3).toString() + scale;
 	textbox.style.width = (size*14).toString() + scale;
 	textbox.style.marginTop = (size*6).toString() + scale;
+	textbox.style.padding = (size/2.0).toString() + scale;
 }
+
 
 $(document).ready( function() {
 	// TODO: finish setting up scene manager
@@ -98,11 +101,10 @@ $(document).ready( function() {
 	instruction = document.querySelector(".instruction");
 
 	// set up listener for clicking on the displayed intro
-	if (localStorage.getItem("gamestate") == "dream") { dreamGameState(); }
-	else if (localStorage.getItem("gamestate") == "map") { mapGameState(); }
+	if (localStorage.getItem("gamestate") == "map") { mapGameState(); }
 	else { 
 		localStorage.getItem("gamestate", "false");
-		intro.addEventListener("click", clickIntro); 
+		intro.addEventListener("contextmenu", rightClickIntro); 
 	}
 });
 

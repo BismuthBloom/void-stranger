@@ -8,26 +8,36 @@ let textbox;
  */
 window.loadRoomText = function loadRoomText() {
 	let room = localStorage.getItem("room");
-	currText = data[room]["Scene"];
-	textbox.innerHtml = currText[parseInt(localStorage.getItem("textIndex"))];
+	try {
+		currText = data[room]["Scene"];
+	}
+	catch {
+		currtext = [""];
+	}
+	textbox.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
+
+	console.log(parseInt(localStorage.getItem("textIndex")));
+	console.log(currText[parseInt(localStorage.getItem("textIndex"))]);
 }
 
 
 /**
  *  progress text
  */
-function clickTextBox(evnt) {
+function rightClickTextbox(evnt) {
+	evnt.preventDefault();
+	
 	let index = parseInt(localStorage.getItem("textIndex")) + 1;
 	if (index == currText.length) {
 		localStorage.setItem("textIndex", "0");
 		window.mapGameState();
 		return;
 	}
-	textbox.innerHtml = currText[index];
+	textbox.innerHTML = currText[index];
 	localStorage.setItem("textIndex", (index + 1).toString());
 }
 
-/*
+//*
 async function gatherJSON() {
 	// get the script
 	try {
@@ -35,6 +45,7 @@ async function gatherJSON() {
 		if (!response.ok) { throw new Error("can't find the dream sequence json"); }
 
 		data = await response.json();
+		window.dreamGameState();
 	}
 	catch (error) {
 		console.error("failed to fetch:", error);
@@ -43,9 +54,10 @@ async function gatherJSON() {
 //*/
 
 $(document).ready( function() {
-	//gatherJSON();
+	gatherJSON();
 	if (!localStorage.getItem("textIndex")) {
 		localStorage.setItem("textIndex", "0");
 	}
 	textbox = document.querySelector("#textbox");
+	textbox.addEventListener("contextmenu", rightClickTextbox);
 });

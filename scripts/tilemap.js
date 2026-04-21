@@ -220,6 +220,7 @@ function rightClickTile(evnt) {
 	let id = parseInt(tile.id);
 
 	if (isUsableTreeTile(tile)) {
+		window.dreamGameState();
 		loadRoom(localStorage.getItem("room") + "-used", data);
 		return;
 	}
@@ -242,16 +243,6 @@ function rightClickTile(evnt) {
 				break;
 		}
 	});
-}
-
-
-/**
- */
-function clearBoard() {
-	localStorage.setItem("heldTile", "empty");
-	for (let i = 0; i < 126; ++i) {
-		loadTile(i.toString(), "empty", data, true);
-	}
 }
 
 

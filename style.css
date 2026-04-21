@@ -14,17 +14,16 @@ div #textbox {
     background-image: url("sprites/vs_textbox.png");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: scroll;
 }
 
 #intro {
-    color: white;
     overflow: scroll;
     width: 100vw;
     height: 100vh;
 }
 
 div .instruction {
-    color: white;
     margin: 0px;
 }
 
@@ -41,12 +40,14 @@ html {
 }
 
 body {
+    color: white;
     background-color: black;
     display: flex;
     flex-direction: column;
 }
 
 body .white-void {
+    color: black;
     background-color: white;
 }
 
