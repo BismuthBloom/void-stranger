@@ -14,12 +14,7 @@ let fontSize;
  */
 window.resetGame = function resetGame() {
 	intro.style.display = "block";
-	map.style.display = "none";
-	textouter.style.display = "none";
-	textframe.style.display = "none";
-	topbot.forEach(hf => {
-		hf.style.display = "none";
-	});
+	document.querySelector(".block").style.display = "none";
 	localStorage.setItem("gamestate", "false");
 	intro.addEventListener("contextmenu", rightClickIntro);
 }
@@ -28,6 +23,7 @@ window.resetGame = function resetGame() {
  */
 window.mapGameState = function mapGameState() {
 	intro.style.display = "none";
+	document.querySelector(".block").style.display = "flex";
 	map.style.display = "grid";
 	textouter.style.display = "none";
 	textframe.style.display = "none";
@@ -42,6 +38,7 @@ window.mapGameState = function mapGameState() {
  */
 window.dreamGameState = function dreamGameState() {
 	intro.style.display = "none";
+	document.querySelector(".block").style.display = "flex";
 	map.style.display = "none";
 	textouter.style.display = "block";
 	textframe.style.display = "block";
