@@ -1,5 +1,8 @@
 let map;
+let backdrop;
+let text;
 let textbox;
+let textouter;
 let textframe;
 let intro;
 let topbot;
@@ -12,7 +15,7 @@ let fontSize;
 window.resetGame = function resetGame() {
 	intro.style.display = "block";
 	map.style.display = "none";
-	textbox.style.display = "none";
+	textouter.style.display = "none";
 	textframe.style.display = "none";
 	topbot.forEach(hf => {
 		hf.style.display = "none";
@@ -26,7 +29,7 @@ window.resetGame = function resetGame() {
 window.mapGameState = function mapGameState() {
 	intro.style.display = "none";
 	map.style.display = "grid";
-	textbox.style.display = "none";
+	textouter.style.display = "none";
 	textframe.style.display = "none";
 	topbot.forEach(hf => {
 		hf.style.display = "block";
@@ -40,7 +43,7 @@ window.mapGameState = function mapGameState() {
 window.dreamGameState = function dreamGameState() {
 	intro.style.display = "none";
 	map.style.display = "none";
-	textbox.style.display = "block";
+	textouter.style.display = "block";
 	textframe.style.display = "block";
 	topbot.forEach(hf => {
 		hf.style.display = "block";
@@ -80,33 +83,34 @@ window.customResize = function resize() {
 		size = (currh/10.0);
 		tbmargin = size/2.0;
 		sidemargin = (currw-(size*14))/2.0;
-		map.style.padding = "8px " + sidemargin.toString() + scale;
 	}
+
+	map.style.padding = "8px " + sidemargin.toString() + scale;
+	backdrop.style.padding = "8px " + sidemargin.toString() + scale;
 
 	tiles.forEach(tile => {
 		tile.style.height = size.toString() + scale;
 		tile.style.width = size.toString() + scale;
 	});
 
+	document.querySelector(".holder").style.height = (size*9).toString() + scale;
+
 	topbot.forEach(hf => {
 		hf.style.height = tbmargin.toString() + scale;
-		//hf.style.margin = "8px " + sidemargin.toString() + scale;
 	});
 
-	fontSize = Math.floor(size) + "px";
+	fontSize = size + "px";
 	instruction.style.fontSize = fontSize;
 	intro.style.fontSize = fontSize;
 	textbox.style.fontSize = fontSize;
 
 	textbox.style.height = (size*3).toString() + scale;
 	textbox.style.width = (size*14).toString() + scale;
-	textbox.style.marginTop = (size*6).toString() + scale;
-	textbox.style.padding = (size/2.0).toString() + scale;
+	
+	textouter.style.padding = (size*6 + 8).toString() + scale + " " + sidemargin.toString() + scale + " 8px " + sidemargin.toString() + scale;
+	textframe.style.padding = (size*6 + 8).toString() + scale + " " + sidemargin.toString() + scale + " 8px " + sidemargin.toString() + scale;
 
-	textframe.style.height = (size*3).toString() + scale;
-	textframe.style.width = (size*14).toString() + scale;
-	textframe.style.marginTop = (size*6).toString() + scale;
-	textframe.style.padding = (size/2.0).toString() + scale;
+	text.style.padding = (size/2.0).toString() + scale;
 }
 
 
@@ -118,8 +122,11 @@ function basicContextMenu(evnt) {
 $(document).ready( function() {
 	// TODO: finish setting up scene manager
 	map = document.querySelector("#map");
+	backdrop = document.querySelector("#backdrop_outside");
+	text = document.querySelector(".text");
 	textbox = document.querySelector("#textbox");
-	textframe = document.querySelector("#abovebox");
+	textouter = document.querySelector("#textbox_outside");
+	textframe = document.querySelector("#abovebox_outside");
 	intro = document.querySelector("#intro");
 	topbot = document.querySelectorAll("div.topbot");
 	instruction = document.querySelector(".instruction");
@@ -134,12 +141,10 @@ $(document).ready( function() {
 	}
 
 	// remove other contextmenus
-	//*
 	document.querySelectorAll("div").forEach(div => {
 		div.addEventListener("contextmenu", basicContextMenu);
 	});
 	document.querySelector("body").addEventListener("contextmenu", basicContextMenu);
-	//*/
 });
 
 window.onresize = window.customResize;

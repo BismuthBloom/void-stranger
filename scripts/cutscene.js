@@ -1,6 +1,6 @@
 let data;
 let currText;
-let textbox;
+let text;
 
 // load the cutscene layout for the game. the transitions are handled by scenemanager
 /**
@@ -11,9 +11,9 @@ window.loadRoomText = function loadRoomText() {
 	let room = localStorage.getItem("room").replace("-used", "");
 
 	currText = data[room]["Scene"];
-	document.querySelector(".background").style.backgroundImage = "url('sprites/dreams/"+ data[room]["Background"] +"')";
+	document.querySelector("#backdrop").style.backgroundImage = "url('sprites/dreams/"+ data[room]["Background"] +"')";
 	
-	textbox.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
+	text.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
 }
 
 
@@ -26,15 +26,14 @@ function rightClickTextbox(evnt) {
 	let index = parseInt(localStorage.getItem("textIndex")) + 1;
 	if (index == currText.length) {
 		localStorage.setItem("textIndex", "0");
-		document.querySelector(".background").style.backgroundImage = "url('')";
+		document.querySelector("#backdrop").style.backgroundImage = "url('')";
 		window.mapGameState();
 		return;
 	}
-	textbox.innerHTML = currText[index];
+	text.innerHTML = currText[index];
 	localStorage.setItem("textIndex", index.toString());
 }
 
-//*
 async function gatherJSON() {
 	// get the script
 	try {
@@ -50,13 +49,12 @@ async function gatherJSON() {
 		console.error("failed to fetch:", error);
 	}
 }
-//*/
 
 $(document).ready( function() {
 	gatherJSON();
 	if (!localStorage.getItem("textIndex")) {
 		localStorage.setItem("textIndex", "0");
 	}
-	textbox = document.querySelector("#textbox");
-	textbox.addEventListener("contextmenu", rightClickTextbox);
+	text = document.querySelector(".text");
+	text.addEventListener("contextmenu", rightClickTextbox);
 });

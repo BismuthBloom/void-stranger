@@ -15,6 +15,15 @@ div #textbox {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: scroll;
+    pointer-events: all;
+}
+
+div #textbox_outside {
+    pointer-events: none;
+}
+
+div #abovebox_outside {
+    pointer-events: none;
 }
 
 div #abovebox {
@@ -23,6 +32,8 @@ div #abovebox {
     background-repeat: no-repeat;
     background-size: cover;
     pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 
 #intro {
@@ -33,6 +44,13 @@ div #abovebox {
 
 div .instruction {
     margin: 0px;
+}
+
+#backdrop {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -374,8 +392,6 @@ body .white-void {
 }
 .block .background {
     background-color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .block .foreground {
     margin-left: -100%; /* required */
