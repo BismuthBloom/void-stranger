@@ -110,6 +110,11 @@ window.customResize = function resize() {
 }
 
 
+function basicContextMenu(evnt) {
+	evnt.preventDefault();
+}
+
+
 $(document).ready( function() {
 	// TODO: finish setting up scene manager
 	map = document.querySelector("#map");
@@ -127,6 +132,14 @@ $(document).ready( function() {
 		intro.addEventListener("contextmenu", rightClickIntro); 
 		intro.style.display = "block";
 	}
+
+	// remove other contextmenus
+	//*
+	document.querySelectorAll("div").forEach(div => {
+		div.addEventListener("contextmenu", basicContextMenu);
+	});
+	document.querySelector("body").addEventListener("contextmenu", basicContextMenu);
+	//*/
 });
 
 window.onresize = window.customResize;
