@@ -9,8 +9,7 @@ let textbox;
 window.loadRoomText = function loadRoomText() {
 	let room = localStorage.getItem("room");
 	currText = data[room]["Scene"];
-	textbox.innerHtml = currText[0];
-	localStorage.setItem("textIndex", "0");
+	textbox.innerHtml = currText[parseInt(localStorage.getItem("textIndex"))];
 }
 
 
@@ -18,7 +17,14 @@ window.loadRoomText = function loadRoomText() {
  *  progress text
  */
 function clickTextBox(evnt) {
-	//
+	let index = parseInt(localStorage.getItem("textIndex")) + 1;
+	if (index == currText.length) {
+		localStorage.setItem("textIndex", "0");
+		window.mapGameState();
+		return;
+	}
+	textbox.innerHtml = currText[index];
+	localStorage.setItem("textIndex", (index + 1).toString());
 }
 
 /*
@@ -38,6 +44,8 @@ async function gatherJSON() {
 
 $(document).ready( function() {
 	//gatherJSON();
-	localStorage.setItem("textIndex", "0");
+	if (!localStorage.getItem("textIndex")) {
+		localStorage.setItem("textIndex", "0");
+	}
 	textbox = document.querySelector("#textbox");
 });

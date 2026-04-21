@@ -16,6 +16,13 @@ div #textbox {
     background-size: cover;
 }
 
+#intro {
+    color: white;
+    overflow: scroll;
+    width: 100vw;
+    height: 100vh;
+}
+
 div .instruction {
     color: white;
     margin: 0px;

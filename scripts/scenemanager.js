@@ -8,6 +8,45 @@ let fontSize;
 
 /**
  */
+window.mapGameState = function mapGameState() {
+	intro.style.display = "none";
+	map.style.display = "grid";
+	textbox.style.display = "none";
+	topbot.forEach(hf => {
+		hf.style.display = "block";
+	});
+	localStorage.setItem("gamestate", "map");
+
+	// instruction.innerHtml = "Left click to pick up tiles. Right click to \"use\" things like the tree or stairs.";
+}
+
+
+/**
+ */
+window.dreamGameState = function dreamGameState() {
+	intro.style.display = "none";
+	map.style.display = "none";
+	textbox.style.display = "block";
+	topbot.forEach(hf => {
+		hf.style.display = "block";
+	});
+	localStorage.setItem("gamestate", "dream");
+	window.loadRoomText();
+
+	// instruction.innerHtml = "Click on the text box to progress the dialogue.";
+}
+
+
+/**
+ */
+function clickIntro(evnt) {
+	mapGameState();
+	intro.removeEventListener("click", clickIntro);
+}
+
+
+/**
+ */
 window.customResize = function resize() {
 	// resize the tiles and textboxes to fit perfectly in place
 	let currw = window.innerWidth-16;
@@ -43,6 +82,7 @@ window.customResize = function resize() {
 
 	fontSize = Math.floor(size) + "px";
 	instruction.style.fontSize = fontSize;
+	intro.style.fontSize = fontSize;
 
 	textbox.style.height = (size*3).toString() + scale;
 	textbox.style.width = (size*14).toString() + scale;
@@ -57,15 +97,13 @@ $(document).ready( function() {
 	topbot = document.querySelectorAll("div.topbot");
 	instruction = document.querySelector(".instruction");
 
-	textbox.style.display = "none";
-	/*
-	map.style.display = "none";
-	topbot.forEach(hf => {
-		hf.style.display = "none";
-	});
-	*/
-
 	// set up listener for clicking on the displayed intro
+	if (localStorage.getItem("gamestate") == "dream") { dreamGameState(); }
+	else if (localStorage.getItem("gamestate") == "map") { mapGameState(); }
+	else { 
+		localStorage.getItem("gamestate", "false");
+		intro.addEventListener("click", clickIntro); 
+	}
 });
 
 window.onresize = window.customResize;
