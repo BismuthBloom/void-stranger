@@ -1,5 +1,6 @@
 let map;
 let textbox;
+let textframe;
 let intro;
 let topbot;
 let instruction;
@@ -12,6 +13,7 @@ window.mapGameState = function mapGameState() {
 	intro.style.display = "none";
 	map.style.display = "grid";
 	textbox.style.display = "none";
+	textframe.style.display = "none";
 	topbot.forEach(hf => {
 		hf.style.display = "block";
 	});
@@ -27,6 +29,7 @@ window.dreamGameState = function dreamGameState() {
 	intro.style.display = "none";
 	map.style.display = "none";
 	textbox.style.display = "block";
+	textframe.style.display = "block";
 	topbot.forEach(hf => {
 		hf.style.display = "block";
 	});
@@ -89,6 +92,11 @@ window.customResize = function resize() {
 	textbox.style.width = (size*14).toString() + scale;
 	textbox.style.marginTop = (size*6).toString() + scale;
 	textbox.style.padding = (size/2.0).toString() + scale;
+
+	textframe.style.height = (size*3).toString() + scale;
+	textframe.style.width = (size*14).toString() + scale;
+	textframe.style.marginTop = (size*6).toString() + scale;
+	textframe.style.padding = (size/2.0).toString() + scale;
 }
 
 
@@ -96,6 +104,7 @@ $(document).ready( function() {
 	// TODO: finish setting up scene manager
 	map = document.querySelector("#map");
 	textbox = document.querySelector("#textbox");
+	textframe = document.querySelector("#abovebox");
 	intro = document.querySelector("#intro");
 	topbot = document.querySelectorAll("div.topbot");
 	instruction = document.querySelector(".instruction");

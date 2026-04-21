@@ -17,6 +17,14 @@ div #textbox {
     overflow: scroll;
 }
 
+div #abovebox {
+    /* size shall be handled by tilemap */
+    background-image: url("sprites/vs_textbox2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+}
+
 #intro {
     overflow: scroll;
     width: 100vw;
@@ -359,8 +367,9 @@ body .white-void {
     flex: none; /* required */
 }
 .block .background {
-    background-image: url("");
     background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .block .foreground {
     margin-left: -100%; /* required */

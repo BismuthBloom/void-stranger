@@ -7,13 +7,12 @@ let textbox;
  * set the first text
  */
 window.loadRoomText = function loadRoomText() {
-	let room = localStorage.getItem("room");
-	try {
-		currText = data[room]["Scene"];
-	}
-	catch {
-		currtext = [""];
-	}
+	// clean up room name if needed
+	let room = localStorage.getItem("room").replace("-used", "");
+
+	currText = data[room]["Scene"];
+	document.querySelector(".background").style.backgroundImage = "url('sprites/dreams/"+ data[room]["Background"] +"')";
+	
 	textbox.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
 }
 
@@ -27,6 +26,7 @@ function rightClickTextbox(evnt) {
 	let index = parseInt(localStorage.getItem("textIndex")) + 1;
 	if (index == currText.length) {
 		localStorage.setItem("textIndex", "0");
+		document.querySelector(".background").style.backgroundImage = "url('')";
 		window.mapGameState();
 		return;
 	}
