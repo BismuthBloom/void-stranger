@@ -111,6 +111,7 @@ window.customResize = function resize() {
 	textframe.style.padding = (size*6 + 8).toString() + scale + " " + sidemargin.toString() + scale + " 8px " + sidemargin.toString() + scale;
 
 	text.style.padding = (size/2.0).toString() + scale;
+	intro.style.margin = (size/2.0).toString() + scale;
 }
 
 
