@@ -20,19 +20,19 @@
     "Scene": ["temp", "temp"]
   },
   "B168": {
-    "Background": "V241.gif",
-    "Scene": ["temp", "temp"]
-  },
-  "B196": {
     "Background": "V246.gif",
     "Scene": ["temp", "temp"]
   },
-  "B224": {
+  "B196": {
     "Background": "V250.gif",
     "Scene": ["temp", "temp"]
   },
-  "B254": {
+  "B224": {
     "Background": "V251.gif",
+    "Scene": ["temp", "temp"]
+  },
+  "B254": {
+    "Background": "V254.gif",
     "Scene": ["temp", "temp"]
   },
   "B255": {

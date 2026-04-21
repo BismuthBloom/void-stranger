@@ -2222,7 +2222,7 @@
     "123": "ui",
     "124": "b2",
     "125": "n54",
-    "Stairs Exit": "B255",
+    "Stairs Exit": "dev-end-1",
     "Drop Location": "",
     "Drop Exit": ""
   },
@@ -2353,7 +2353,7 @@
     "123": "ui",
     "124": "b2",
     "125": "n54",
-    "Stairs Exit": "B255",
+    "Stairs Exit": "dev-end-1",
     "Drop Location": "",
     "Drop Exit": ""
   },
