@@ -14,10 +14,7 @@ window.loadRoomText = function loadRoomText() {
 	catch {
 		currtext = [""];
 	}
-	console.log(currText.length);
 	textbox.innerHTML = currText[parseInt(localStorage.getItem("textIndex"))];
-
-	console.log(parseInt(localStorage.getItem("textIndex")));
 }
 
 
@@ -28,7 +25,6 @@ function rightClickTextbox(evnt) {
 	evnt.preventDefault();
 	
 	let index = parseInt(localStorage.getItem("textIndex")) + 1;
-	console.log(index, " ", currText.length);
 	if (index == currText.length) {
 		localStorage.setItem("textIndex", "0");
 		window.mapGameState();

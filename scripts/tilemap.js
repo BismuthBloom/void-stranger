@@ -231,7 +231,7 @@ function rightClickTile(evnt) {
 				// go to the next room!!
 				let currRoom = localStorage.getItem("room");
 				let nextRoom = data[currRoom]["Stairs Exit"];
-				console.log(nextRoom);
+				
 				if (nextRoom == "") { return; }
 				loadRoom(nextRoom, data);
 				break;

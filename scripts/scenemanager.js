@@ -67,7 +67,7 @@ window.customResize = function resize() {
 		size = (currh/10.0);
 		tbmargin = size/2.0;
 		sidemargin = (currw-(size*14))/2.0;
-		map.style.margin = "8px " + sidemargin.toString() + scale;
+		map.style.padding = "8px " + sidemargin.toString() + scale;
 	}
 
 	tiles.forEach(tile => {
@@ -77,7 +77,7 @@ window.customResize = function resize() {
 
 	topbot.forEach(hf => {
 		hf.style.height = tbmargin.toString() + scale;
-		hf.style.margin = "8px " + sidemargin.toString() + scale;
+		//hf.style.margin = "8px " + sidemargin.toString() + scale;
 	});
 
 	fontSize = Math.floor(size) + "px";
