@@ -136,6 +136,15 @@ function isUsableTreeTile(tile) {
 
 /**
  */
+function isEarthTile(tile) {
+	const regex = /^earth-/;
+	return Array.from(tile.classList).some(cn => 
+		regex.test(cn)
+	);
+}
+
+/**
+ */
 function isNumTile(tile) {
 	const regex = /^n/;
 	return Array.from(tile.classList).some(cn => 
@@ -181,7 +190,7 @@ function clickTile(evnt) {
 				}
 				else {}
 
-				if (aboveTile && !isTreeTile(aboveTile) && !(isEmptyTile(aboveTile) || isEmptyEdge(aboveTile))) {
+				if (aboveTile && !isTreeTile(aboveTile) && !isEarthTile(aboveTile) && !(isEmptyTile(aboveTile) || isEmptyEdge(aboveTile))) {
 					tile.classList.replace(class_name, "empty-edge");
 					localStorage.setItem(tile.id, "empty-edge");
 				}
