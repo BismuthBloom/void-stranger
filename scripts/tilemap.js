@@ -71,7 +71,7 @@ function loadTile(tileid, roomname, data, force = false) {
  */
 function changeRodIcon(prevTile, heldTile) {
 	let prefix = "void-rod-";
-	if (prevTile.substr(0, 1) == "n" || prevTile == "huh") { prevTile = "ui"; }
+	if (prevTile.substring(0, 1) == "n" || prevTile == "huh") { prevTile = "ui"; }
 	if (heldTile.substr(0, 1) == "n" || heldTile == "huh") { heldTile = "ui"; }
 	voidrod.classList.replace(prefix.concat(prevTile), prefix.concat(heldTile));
 }
@@ -105,8 +105,11 @@ function isEmptyTile(tile) {
 
 /**
  */
-function isEmptyEdge(tile) {
-	return tile.classList.contains("empty-edge");
+function isEdge(tile) {
+	const regex = /^.*-edge/;
+	return Array.from(tile.classList).some(cn => 
+		regex.test(cn)
+	);
 }
 
 
@@ -152,6 +155,26 @@ function isNumTile(tile) {
 	);
 }
 
+/**
+ */
+function toggleEdge(tile) {
+	if (!(isEmptyTile(tile) || isEdge(tile)) && !isTreeTile(tile)) { return; }
+
+	let class_name;
+	tile.classList.forEach(function (cn) {
+		if (cn != "tile" && cn != "no-interact") { class_name = cn; }
+	});
+
+	if (isEdge(tile)) {
+		tile.classList.replace(class_name, class_name.replace("-edge", ""));
+		localStorage.setItem(tile.id, );
+	}
+	else {
+		tile.classList.replace(class_name, class_name + "-edge");
+		localStorage.setItem(tile.id, class_name + "-edge");
+	}
+}
+
 
 /**
  */
@@ -184,13 +207,13 @@ function clickTile(evnt) {
 			case "floor":
 				if (heldTile !== "empty") { break; }
 
-				if (belowTile && isEmptyEdge(belowTile)) {
+				if (belowTile && isEdge(belowTile)) {
 					belowTile.classList.replace("empty-edge", "empty");
 					localStorage.setItem(belowTile.id, "empty");
 				}
 				else {}
 
-				if (aboveTile && !isTreeTile(aboveTile) && !isEarthTile(aboveTile) && !(isEmptyTile(aboveTile) || isEmptyEdge(aboveTile))) {
+				if (aboveTile && !isTreeTile(aboveTile) && !isEarthTile(aboveTile) && !(isEmptyTile(aboveTile) || isEdge(aboveTile))) {
 					tile.classList.replace(class_name, "empty-edge");
 					localStorage.setItem(tile.id, "empty-edge");
 				}
@@ -206,9 +229,8 @@ function clickTile(evnt) {
 			case "empty":
 				if (heldTile == "empty") { break; }
 
-				if (belowTile && isEmptyTile(belowTile)) {
-					belowTile.classList.replace("empty", "empty-edge");
-					localStorage.setItem(belowTile.id, "empty-edge");
+				if (belowTile) {
+					toggleEdge(belowTile);
 				}
 
 				tile.classList.replace(class_name, heldTile);

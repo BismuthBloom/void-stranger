@@ -149,6 +149,12 @@ body .white-void {
 
 .tree-3 { background-image: url("sprites/tiles/tree/spr_tree_2.png"); }
 
+.tree-1-edge { background-image: url("sprites/tiles/tree/spr_tree_edge_0.png"); }
+
+.tree-2-edge { background-image: url("sprites/tiles/tree/spr_tree_edge_1.png"); }
+
+.tree-3-edge { background-image: url("sprites/tiles/tree/spr_tree_edge_2.png"); }
+
 .tree-4 { background-image: url("sprites/tiles/tree/spr_tree_3.png"); }
 
 .tree-5 { background-image: url("sprites/tiles/tree/spr_tree_4.png"); }
@@ -172,6 +178,12 @@ body .white-void {
 .used-tree-2 { background-image: url("sprites/tiles/tree/spr_tree_used_1.png"); }
 
 .used-tree-3 { background-image: url("sprites/tiles/tree/spr_tree_used_2.png"); }
+
+.used-tree-1-edge { background-image: url("sprites/tiles/tree/spr_tree_used_edge_0.png"); }
+
+.used-tree-2-edge { background-image: url("sprites/tiles/tree/spr_tree_used_edge_1.png"); }
+
+.used-tree-3-edge { background-image: url("sprites/tiles/tree/spr_tree_used_edge_2.png"); }
 
 .used-tree-4 { background-image: url("sprites/tiles/tree/spr_tree_used_3.png"); }
 
