@@ -213,17 +213,16 @@ function clickTile(evnt) {
 				}
 				else {}
 
-				if (aboveTile && !isTreeTile(aboveTile) && !isEarthTile(aboveTile) && !(isEmptyTile(aboveTile) || isEdge(aboveTile))) {
-					tile.classList.replace(class_name, "empty-edge");
-					localStorage.setItem(tile.id, "empty-edge");
-				}
-				else {
-					tile.classList.replace(class_name, "empty");
-					localStorage.setItem(tile.id, "empty");
-				}
+				tile.classList.replace(class_name, "empty");
+				localStorage.setItem(tile.id, "empty");
 
 				localStorage.setItem("heldTile", class_name);
 				changeRodIcon("empty", class_name);
+
+				if (aboveTile && !isTreeTile(aboveTile) && !isEarthTile(aboveTile) && !(isEmptyTile(aboveTile) || isEdge(aboveTile))) {
+					toggleEdge(tile);
+				}
+
 				break;
 			case "empty-edge":
 			case "empty":
