@@ -167,7 +167,7 @@ function toggleEdge(tile) {
 
 	if (isEdge(tile)) {
 		tile.classList.replace(class_name, class_name.replace("-edge", ""));
-		localStorage.setItem(tile.id, );
+		localStorage.setItem(tile.id, class_name.replace("-edge", ""));
 	}
 	else {
 		tile.classList.replace(class_name, class_name + "-edge");
@@ -208,8 +208,7 @@ function clickTile(evnt) {
 				if (heldTile !== "empty") { break; }
 
 				if (belowTile && isEdge(belowTile)) {
-					belowTile.classList.replace("empty-edge", "empty");
-					localStorage.setItem(belowTile.id, "empty");
+					toggleEdge(belowTile);
 				}
 				else {}
 
