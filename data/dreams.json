@@ -1,42 +1,42 @@
 {
   "B028": {
     "Background": "V228.gif",
-    "Scene": ["There's always been a thread of fascination pulling me towards games.", "They are mechanisms, after all.", "Like clockwork, like a tapestry mid weave, they spill into something...", "lovely.", "I think that's the best word for them.", "They tick just like a beloved pocketwatch; they unravel like an adored quilt.", "From the simplistic to the agonizing, games do what they can to draw in an audience.", "Void Stranger was no different."]
+    "Scene": ["The void is something few choose to enter with full understanding of what awaits them.", "It takes a sense of desperation to jump down into a perfectly square hole in the ground.", "...", "You know that feeling too well.", "No matter the reason, this place has little water or food.", "All you find is a strange rod with the ability to move tiles and... locusts?", "Even if they aren't tasty, at least their sheen will keep you company."]
   },
   "B056": {
     "Background": "V231.gif",
-    "Scene": ["The game revealed itself to me on an overcast day.", "A small recommendation. \"A Game for Lunatics\".", "How could I not want to jump into the game seeing that?", "All I knew was it was filled with puzzles.", "Once the character I was puppeting, Gray, picked up the void rod, the game truly began.", "I fell to my death before learning the first mechanic.", "Like other games I've come to adore, Void Stranger doesn't give much for a way of tutorial.", "I just was asked if I wanted to continue, and so I did.", "I picked up that first tile and placed it to make a bridge."]
+    "Scene": ["You haven't seen any other people, but that doesn't mean you've lost all hope of escaping.", "There's <i>always</i> a set of stairs.", "Maybe there'll be an escape.", "There has to be.", "Or at least an end..", "The dull nothingless of the walls are occasionally cut with the hazy comfort of a lone birch tree in a sea of nothing.", "At least you can rest beneath the leaves.", "It's always a shame they've decayed when you wake up."]
   },
   "B084": {
     "Background": "V233.gif",
-    "Scene": ["The first birch tree"]
+    "Scene": ["There's only more puzzles.", "You trudge further down.", "Past murals...", "beyond scales...", "through locks and around looming enemies.", "Maggots and leeches perpendicularly move in tandem;", "smiles inch closer as soon as you're in their line of sight;", "beavers charge with reckless abandon.", "You're not sure how you learned their names nor how you began to recognize the words of the eggs strewn about the endless halls.", "Sometimes, lonely ones whispers about whoever used to maintain this place.", "A fairy tale doesn't help much in getting you out."]
   },
   "B112": {
     "Background": "V234.gif",
-    "Scene": ["temp1", "temp2"]
+    "Scene": ["Someone else!", "Finally!", "You reach towards their hunched over form and... the creature snaps its head to look at you.", "A tembling hand reaches towards the pocket you've stashed your locusts in, and it bemoans its hunger.", "You take a step back.", "It doesn't follow. It watches.", "It watches even as you fall down below when you fail setting up the room in a way to pass.", "Eventually, the eyes disappear, and an egg sits in its place.", "You tap the surface of the boulder like thing and hear its voice one more time."]
   },
   "B140": {
     "Background": "V240.gif",
-    "Scene": ["I can write anything here", "and as much as i want", "temp"]
+    "Scene": ["There has to be an end.", "Nothing goes on forever, after all!", "At the next mural, your fist smashes against the wall next to it.", "\"ONLYGNAWINGRAGEREMAINS\"", "How fitting.", "Maybe the newer creatures are getting to you.", "Those eyes trail after your form, and the strange automatons mimic each of your steps.", "Their blank faces make you itch.", "There is always an end.", "There has to be.", "Otherwise..."]
   },
   "B168": {
     "Background": "V246.gif",
-    "Scene": ["i hope you liked the temp from the previous text.", "please try reloading! it should still work out just fine!"]
+    "Scene": ["The rod's felt heavier in your hand as you've delved further down.", "Down 168 rooms.", "You've been counting.", "Everything feels heavy, but you have to keep moving.", "If you stop...", "how could you start again?", "Could you start again?", "That thought of an end keeps you moving through more rooms, along glass, around traps, and beyond the eyes of glaring statues.", "You have to move forward.", "It's the only thing keeping you from joining the sea of voices you keep on hearing.", "There'll be an end."]
   },
   "B196": {
     "Background": "V250.gif",
-    "Scene": ["achoo"]
+    "Scene": ["\"ONLYAENVYREMAINS\"", "How funny.", "Just like the last mural that wasn't destroyed, it's words ring through your head.", "You can only yearn for what you used to have.", "What... you used to have?", "Your hand clutches at the rod, your only lifeline, and you take a stuttering breath.", "You try to think about your life before entering here.", "You can only think of a vague face of someone you knew.", "But... you will get out."]
   },
   "B224": {
     "Background": "V251.gif",
-    "Scene": ["sorry i sneeze"]
+    "Scene": ["It's only through a force of will you keep moving.", "You trudge with shadows of someone else at your heels.", "You've tried to think of who you used to be before you fell, but it feels hollow.", "You ate... food.", "You knew people.", "You can't recall a single name.", "You'll reach the end, and you'll rediscover who you were.", "You have to."]
   },
   "B254": {
     "Background": "V254.gif",
-    "Scene": ["anyways"]
+    "Scene": ["As you collapse beneath the final tree, heaving beneath the weight of worn bones and agonized muscles, you stare up at the fluttering leaves.", "Even without wind, they dance.", "This has to be the end, something in you whispers.", "You are there.", "You will be there.", "You'll get out.", "It's the only thought that you can cling to anymore.", "You'll leave.", "You will."]
   },
   "B255": {
     "Background": "V254.gif",
-    "Scene": ["i promise to finish the script", "so please be kind to me!", "this is a website for an assignment, after all", "but also a personal project"]
+    "Scene": ["I love you."]
   }
 }
